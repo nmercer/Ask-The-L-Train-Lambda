@@ -4,6 +4,7 @@ import json
 import difflib
 
 LINODE_URL = ''
+ALEXA_APP_ID = ''
 
 STOP_NAMES = {
     'Eighth': 184,
@@ -217,7 +218,7 @@ class Speech:
 
 def lambda_handler(event, context):
     if (event['session']['application']['applicationId'] !=
-            "amzn1.echo-sdk-ams.app.90c30b6a-6ff7-499c-be12-86a8516cea8b"):
+            ALEXA_APP_ID):
         raise ValueError("Invalid Application ID")
 
     if event['session']['new']:
